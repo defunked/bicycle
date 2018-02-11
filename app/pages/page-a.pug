@@ -1,0 +1,13 @@
+extends layout/layout.pug
+
+- var title = 'хуйъ'//- page-a.pug
+
+block scripts
+  script(src='/jquery.js')
+  script(src='/pets.js')
+
+block content
+  h1= title
+  - var pets = ['cat', 'dog']
+  each petName in pets
+    include pet.pug

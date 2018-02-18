@@ -3,24 +3,279 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 
+// html {
+//   box-sizing: border-box;
+// }
+//
+// *, *::before, *::after {
+// 	box-sizing: inherit;
+// }
+
+
 .fonts-loaded {
   body {
     font-family: Lato, sans-serif;
+
   }
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 1600px;
-}
-h1 {
+body {
+  font-family: Lato, sans-serif;
+  background: $bgcolor;
+  color: $fcolor;
+  font-size: $basefontsize;
+  @include fl-cntr(column);
+  margin: auto;
+  width: 1600px;
+  // box-sizing: content-box;
 
+}
+
+.section {
+  @include fl-cntr(row);
+  width: 100%;
+  &--enter {
+    height: 200px;
+    background-color: #282f35;
+  }
+  &--hero {
+    height: 800px;
+    @include fl-cntr--start(column);
+  }
+}
+
+.button {
+  margin: auto;
   font-weight: 700;
-  font-size: 3em;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 20px 60px;
+  border: 1px solid #94979a;
+  transition: none;
+
+  &:hover {
+    transition-timing-function: ease-out;
+    transform-origin: 0;
+    transform: perspective(1000px) rotateY(35deg);
+  }
+  &--transition {
+    transition: 0.3s;
+  }
+}
+.header {
+  // top: 100px;
+  position: relative;
+  // border: 5px solid green;
+  width: 100%;
+  // height: a;
+  height: 100vh;
+  background-color: rgba(40, 222, 76, 0.11);
+  @include fl-cntr(column);
+}
+.logo {
+  position: relative;
+  left: center;
+  top: center;
+  height:85px;
+  width: 94px;
+  background-image: url('../imgs/logo01.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 50%;
+  z-index: 1;
+  background-color: rgba(216, 222, 40, 0.41);
+  // border: 2px solid pink;
+}
+.main-menu {
+  position: absolute;
+  top: center;
+  height: auto;
+  left: center;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 50%;
+  z-index: 2;
+  background-color: rgba(207, 40, 222, 0.11);
+  // border: 15px solid yellow;
+  // @include fl-cntr(row);
+}
+.menu {
+  // padding: 0;
+  // margin: 0;
+
+  @include fl-cntr(row);
+  &__items li {
+    // padding: 0 ($link-space / 3);
+  }
+  &__items {
+    height: 200px;
+    flex-basis: 50%;
+
+    &--left {
+    @include fl-cntr--end(row);
+    border: 1px solid red;
+    padding-right: ($logo-space / 2);
+    }
+
+    &--left li {
+    border: 1px solid orange;
+    padding: 0 ($link-space / 2);
+    }
+
+    &--left li:first-child{
+      padding: 0;
+      padding-right: ($link-space / 2);
+    }
+    &--left li:last-child{
+      padding: 0;
+      padding-left: ($link-space / 2);
+    }
+    &--right {
+    @include fl-cntr--start(row);
+    border: 1px solid red;
+    padding-left: ($logo-space / 2);
+    }
+
+    &--right li {
+    border: 1px solid orange;
+    padding: 0 ($link-space / 2);
+    }
+
+    &--right li:first-child{
+      padding: 0;
+      padding-right: ($link-space / 2);
+    }
+    &--right li:last-child{
+      padding: 0;
+      padding-left: ($link-space / 2);
+    }
+  }
+
+
+
+
+
+  &__item {
+    border: 1px solid green;
+    font-family: Lato, sans-serif;
+    text-transform: uppercase;
+    color: $fcolor--menu;
+    font-size: 13px;
+    font-weight: 700;
+    height: 100px;
+    background-color: rgba(10, 33, 240, 0.56);
+    display: block;
+    @include fl-cntr(row);
+  }
+
+  // &__item:last-child {
+  //   padding-right: 0;
+  // }
+  &__link {
+    // @include fl-cntr--end(row);
+    text-decoration: none;
+    font-family: Lato, sans-serif;
+    text-transform: uppercase;
+    color: $fcolor--menu;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    border: 1px solid white;
+    width: 200px;
+    @include fl-cntr--end(row);
+
+
+    &:hover {
+      text-decoration: underline;
+      // transform: skale(2);
+    }
+    // &--transition {
+    // transition: 0.4s;
+    // transition-timing-function: ease-out;
+    // }
+  }
 }
 
+
+.footer {
+  height: 250px;
+  width: 1600px;
+  padding: 0 250px;
+  font-size: 14px;
+  @include fl-cntr--bw(row);
+  border: 5px solid red;
+
+}
+
+.address {
+  flex-basis: 25%;
+  font-style: italic;
+
+  &__title {
+    font-size: 16px;
+    font-style: normal;
+    margin: 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $fcolor;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.social-links {
+  flex-basis: 25%;
+  @include fl-cntr(row);
+
+  &__item {
+    margin-right: 15px;
+    // transform-origin: 50%;
+    // transform: rotate(18000deg);
+    // transition: 3s;
+    // transition-timing-function: ease-in;
+    &:hover {
+      transform-origin: 50%;
+      transform: rotate(360deg);
+      transition: 0.4s;
+      transition-timing-function: ease-out;
+    }
+  }
+
+  &__item:last-child {
+    margin-right: 0;
+  }
+}
+
+.studio-copyright {
+  flex-basis: 25%;
+  @include fl-cntr--end(row);
+
+  &__text {
+    font-style: italic;
+    margin-right: 5px;
+  }
+  &__logo {
+    transition: none;
+
+    &:hover {
+      transform-origin: 50%;
+      transform: rotate(360deg);
+    }
+
+    &--transition {
+      transition: 0.4s;
+      transition-timing-function: ease-out;
+    }
+  }
+}
 // html
 // 	font-size baseFontSize
 // 	height 100%
@@ -74,8 +329,6 @@ h1 {
 //
 // .content
 // 	flex 1 0 auto
-
-
 // //Модули
 // @import "modules/modules";
 // // СТРАНИЦЫ

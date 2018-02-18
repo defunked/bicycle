@@ -1,3 +1,35 @@
+//flexbox mixins
+
+//Абсолютный центр
+@mixin fl-cntr ($fl-direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $fl-direction;
+}
+//По ширине основной, центр по второй
+@mixin fl-cntr--bw ($fl-direction) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: $fl-direction;
+}
+//Начало основной, центр второй
+@mixin fl-cntr--start ($fl-direction) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: $fl-direction;
+}
+
+//Конец основной, центр второй
+@mixin fl-cntr--end ($fl-direction) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: $fl-direction;
+}
+
 // absolute-center()
 // 	position absolute
 // 	top 50%

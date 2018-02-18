@@ -1,6 +1,7 @@
 module.exports = function() {
     $.gulp.task('img:dev', () => {
         return $.gulp.src('./app/resources/imgs/**/*.{png,jpg,gif}')
+            .pipe($.gp.rename({dirname: ''}))
             .pipe($.gulp.dest('./dist/assets/imgs/'));
     });
 

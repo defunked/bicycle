@@ -4,7 +4,7 @@ dist/
 # temp/
 
 # Numerous always-ignore extensions
-*.psd
+# *.psd
 *.bak
 *.diff
 *.err

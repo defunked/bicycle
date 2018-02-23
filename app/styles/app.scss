@@ -2,6 +2,7 @@
 @import "helpers/fonts";
 @import "helpers/variables";
 @import "helpers/mixins";
+@import "../../node_modules/modularscale-sass/stylesheets/modularscale";
 
 // html {
 //   box-sizing: border-box;
@@ -11,11 +12,12 @@
 // 	box-sizing: inherit;
 // }
 
-
+html {
+  font-size: rem(16);
+}
 .fonts-loaded {
   body {
     font-family: Lato, sans-serif;
-
   }
 }
 
@@ -23,12 +25,9 @@ body {
   font-family: Lato, sans-serif;
   background: $bgcolor;
   color: $fcolor;
-  font-size: $basefontsize;
   @include fl-cntr(column);
   margin: auto;
   width: 1600px;
-  // box-sizing: content-box;
-
 }
 
 .section {
@@ -42,12 +41,56 @@ body {
     height: 800px;
     @include fl-cntr--start(column);
   }
+  &--about-us {
+    height: 470px;
+    @include fl-cntr(column);
+
+    // z-index: 1;
+    background-color: rgba(116, 222, 40, 0.41);
+    padding-bottom: 75px;
+    // padding: 50px 280px;
+
+  }
+  &__title {
+    background-color: rgba(216, 102, 140, 0.1);
+    background-image: url('../imgs/icon01-chain.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 50%;
+    // @include fl-cntr(column);
+    color: $fcolor--title;
+    text-transform: uppercase;
+    font-size: rem(18);
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    background-color: rgba(216, 102, 40, 0.41);
+    margin: 0;
+    margin-bottom: 15px;
+    // position: relative;
+    // &::before {
+    //   content: url(../imgs/icon01-chain.png);
+    //   margin-bottom: 30px;
+    //   // display: inline-block;
+    //   // position: absolute;
+
+    // }
+
+  }
+  &__text {
+    margin: 0;
+    margin-top: 15px;
+    // line-height: 2rem;
+    // padding
+    background-color: rgba(216, 222, 40, 0.41);
+  }
 }
+
+
 
 .button {
   margin: auto;
   font-weight: 700;
-  font-size: 14px;
+  font-size: rem(14);
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
@@ -66,149 +109,131 @@ body {
   }
 }
 .header {
-  // top: 100px;
+  top: 0;
   position: relative;
-  // border: 5px solid green;
   width: 100%;
-  // height: a;
-  height: 100vh;
-  background-color: rgba(40, 222, 76, 0.11);
+  height: 155px;
+  // background-color: rgba(40, 222, 76, 0.11);
   @include fl-cntr(column);
 }
 .logo {
-  position: relative;
+  position: absolute;
   left: center;
   top: center;
   height:85px;
   width: 94px;
-  background-image: url('../imgs/logo01.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 50%;
-  z-index: 1;
-  background-color: rgba(216, 222, 40, 0.41);
-  // border: 2px solid pink;
+  // background-image: url('../imgs/logo01.png');
+  // background-repeat: no-repeat;
+  // background-size: auto;
+  // background-position: 50%;
+  // z-index: 1;
+  // background-color: rgba(216, 222, 40, 0.41);
 }
 .main-menu {
+  @include fl-cntr(row);
   position: absolute;
-  top: center;
-  height: auto;
+  top: 50px;
   left: center;
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 50%;
   z-index: 2;
-  background-color: rgba(207, 40, 222, 0.11);
-  // border: 15px solid yellow;
-  // @include fl-cntr(row);
+  // background-color: rgba(207, 40, 222, 0.11);
 }
 .menu {
-  // padding: 0;
-  // margin: 0;
-
+  width: 100%;
   @include fl-cntr(row);
+
+// отступы всем пунктам меню
+
   &__items li {
-    // padding: 0 ($link-space / 3);
+    padding: 0 ($link-space / 2);
+    position: relative;
   }
+
+// точки между ссылок ко всем ссылкам
+
+  &__items li::before {
+    content: ".";
+    display: block;
+    left: 0;
+    color: $fcolor--menu;
+    position: absolute;
+  }
+// убираем точку у каждой первой ссылки
+  &__items li:first-child::before {
+    content: "";
+  }
+
+// обе части меню занимают 50%
   &__items {
-    height: 200px;
     flex-basis: 50%;
 
+//левая половина
+
     &--left {
-    @include fl-cntr--end(row);
-    border: 1px solid red;
-    padding-right: ($logo-space / 2);
+      @include fl-cntr--end(row);
+      padding-right: ($logo-space / 2);
     }
-
-    &--left li {
-    border: 1px solid orange;
-    padding: 0 ($link-space / 2);
-    }
-
-    &--left li:first-child{
-      padding: 0;
-      padding-right: ($link-space / 2);
-    }
-    &--left li:last-child{
-      padding: 0;
-      padding-left: ($link-space / 2);
-    }
+//правая половина
     &--right {
-    @include fl-cntr--start(row);
-    border: 1px solid red;
-    padding-left: ($logo-space / 2);
+      @include fl-cntr--start(row);
+      padding-left: ($logo-space / 2);
     }
 
-    &--right li {
-    border: 1px solid orange;
-    padding: 0 ($link-space / 2);
+//убираем отступ слева у первого блока левой части
+    &--left li:first-child {
+      padding-left: 0;
     }
 
+//убираем отступ справа у последнего блока левой части меню
+    &--left li:last-child {
+      padding-right: 0;
+    }
+
+//выравнивание ссылок по правому краю в левой половине меню
+    &--left li a {
+    @include fl-cntr--end(row);
+    }
+
+//убираем отступ слева у первого блока в правой части меню
     &--right li:first-child{
-      padding: 0;
-      padding-right: ($link-space / 2);
+      padding-left: 0;
     }
-    &--right li:last-child{
-      padding: 0;
-      padding-left: ($link-space / 2);
+//убираем отступ справа у последнего блока в правой части меню
+    &--right li:last-child {
+      padding-right: 0;
+    }
+//выравнивание ссылок по левому краю в правой половине меню
+    &--right li a {
+    @include fl-cntr--start(row);
     }
   }
-
-
-
-
 
   &__item {
-    border: 1px solid green;
     font-family: Lato, sans-serif;
-    text-transform: uppercase;
-    color: $fcolor--menu;
-    font-size: 13px;
-    font-weight: 700;
-    height: 100px;
-    background-color: rgba(10, 33, 240, 0.56);
+    font-size: rem(13);
     display: block;
-    @include fl-cntr(row);
   }
-
-  // &__item:last-child {
-  //   padding-right: 0;
-  // }
   &__link {
-    // @include fl-cntr--end(row);
-    text-decoration: none;
-    font-family: Lato, sans-serif;
     text-transform: uppercase;
     color: $fcolor--menu;
-    font-size: 13px;
+    font-size: rem(13);
     font-weight: 700;
+    text-decoration: none;
     letter-spacing: 0.2em;
-    border: 1px solid white;
-    width: 200px;
-    @include fl-cntr--end(row);
-
-
     &:hover {
       text-decoration: underline;
-      // transform: skale(2);
+      color: #64c29e;
+      transition: 0.4s;
     }
-    // &--transition {
-    // transition: 0.4s;
-    // transition-timing-function: ease-out;
-    // }
   }
 }
-
 
 .footer {
   height: 250px;
   width: 1600px;
   padding: 0 250px;
-  font-size: 14px;
+  font-size: rem(14);
   @include fl-cntr--bw(row);
-  border: 5px solid red;
-
 }
 
 .address {
@@ -216,7 +241,7 @@ body {
   font-style: italic;
 
   &__title {
-    font-size: 16px;
+    font-size: rem(16);
     font-style: normal;
     margin: 0;
   }
@@ -237,10 +262,6 @@ body {
 
   &__item {
     margin-right: 15px;
-    // transform-origin: 50%;
-    // transform: rotate(18000deg);
-    // transition: 3s;
-    // transition-timing-function: ease-in;
     &:hover {
       transform-origin: 50%;
       transform: rotate(360deg);

@@ -1,14 +1,19 @@
+//The em() Sass function
+$fsize--base: 16; // Default
+
+@function rem($pixels, $context: $fsize--base) {
+  @return #{$pixels/$context}rem;
+}
+
 // ЦВЕТА
 $bgcolor: #f7f7f7;
 $fcolor: #848789;
 $fcolor--menu: #4d4959;
+$fcolor--title: #353738;
 //
-// // РАЗМЕРЫ
-$basefontsize: 16px;
 
 //РАЗМЕРЫ__МЕНЮ
 //пространство под лого
 $logo-space: 220px;
 //пространство между ссылками
 $link-space: 70px;
-//

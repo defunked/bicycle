@@ -2,9 +2,7 @@
 @import "helpers/fonts";
 @import "helpers/variables";
 @import "helpers/mixins";
-@import "../../node_modules/modularscale-sass/stylesheets/modularscale";
-
-// html {
+@import "../../node_modules/modularscale-sass/stylesheets/modularscale"; // html {
 //   box-sizing: border-box;
 // }
 //
@@ -15,7 +13,8 @@
 html {
   font-size: rem(16);
 }
-.fonts-loaded {
+
+.page__fonts-loaded {
   body {
     font-family: Lato, sans-serif;
   }
@@ -30,23 +29,39 @@ body {
   width: 1600px;
 }
 
+//------------------------------------------------
+//------------------------------------------------
+//------------------------------------------------
+
 .section {
   @include fl-cntr(row);
   width: 100%;
-  &--enter {
-    height: 200px;
-    background-color: #282f35;
-  }
+
   &--hero {
     height: 800px;
     @include fl-cntr--start(column);
   }
+
   &--about-us {
     height: 470px;
     @include fl-cntr--start(column);
     // background-color: rgba(116, 222, 40, 0.41);
     padding-top: 100px;
   }
+
+  &--recent-tweets {
+    @include fl-cntr--strtch(stretch);
+    // display: flex;
+    // flex-direction: row;
+    // align-items: stretch;
+    height: 470px;
+  }
+
+  &--shop {
+    @include fl-cntr(column);
+    background-color: #282f35;
+  }
+
   &__title {
     @include fl-cntr(column);
     text-align: center;
@@ -56,12 +71,14 @@ body {
     letter-spacing: 0.2em;
     font-weight: 700;
     // background-color: rgba(216, 102, 40, 0.41);
-    margin-bottom:  21px;
+    margin-bottom: 21px;
+
     &::before {
-      content: url(../imgs/icon01-chain.png);
+      content: url("../imgs/icon01-chain.png");
       margin-bottom: 30px;
     }
   }
+
   &__text {
     line-height: 1.889;
     font-weight: 400;
@@ -70,95 +87,212 @@ body {
     text-align: center;
     // background-color: rgba(216, 222, 40, 0.41);
   }
-  &--shop {
-    // display: block;
-    width: 1600px;
 
-    // height: 100vh;
-    height: 534px;
-    // display: flex;
-    // column-count: 3;
-    // float: right;
-    // vertical-align: top;
-    // flex-direction: column;
-    @include fl-cntr(row);
-    // display: inline-flex;
-    // justify-content: flex-start;
-    // align-items: flex-start;
-    // flex-wrap: wrap;
-    background-color: rgba(216, 222, 40, 0.41);
-
-    // &::after {
-    //   content: '';
-    //   display: block;
-    //   clear: both;
-    // }
-
-
+  &__button {
+    // width: 400px;
+    margin: 75px 0;
   }
-  // &__pic {
-  //   // width: 16.66666666666667%;
-  //   display: inline-block;
-  //   // float: b;
-  //   float: right;
-  //   vertical-align: top;
-  //   // @include fl-cntr(row);
-  //
-  //   // box-sizing: border-box;
-  //   // border: 5px solid black;
-  //   // height: 50%;
-  // }
 }
+
 .red {
   background-color: red;
 }
+
 .blue {
   background-color: blue;
 }
+
 .green {
   background-color: green;
 }
-.img-wrapper {
-  flex-basis: 33,33333333333333%;
-  // height: 534px;
-  width: 100%  ;
+
+.img-links {
   @include fl-cntr(row);
-  flex-wrap: wrap;
-  // background-color: red;
-  // &--column {
-  //   // background-color: green;
-  //   @include fl-cntr(row);
-  //   flex-wrap: wrap;
-  //   // width: 100%;
-  // }
+  // width: 533px;
+  &--wrap {
+    width: 533px;
+    //разобраться с этой поебенью
+    // 533+534+533
+    @include fl-cntr(row);
+    flex-wrap: wrap;
+  }
+  &--wrap-big {
+    width: 534px;
+  }
 }
 
-.img-wrapper img {
-  display: block;
+.img-link {
+  height: 267px;
+  width: 267px;
+  @include fl-cntr(row);
+
+  &--rectangle {
+    width: 266px;
+  }
+
+  &--rectangle-v {
+    height: 534px;
+  }
+
+  &--rectangle-h {
+    width: 533px;
+  }
+
+  &--bg {
+    @include fl-cntr(row);
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 194, 158, 0.8);
+    visibility: hidden;
+  }
+
+  &:hover &--bg {
+    visibility: visible;
+  }
+
+  &__text {
+    @include fl-cntr(column);
+    border-bottom: 2px solid transparent;
+    font-weight: 700;
+    font-size: rem(14);
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    &::before {
+      content: url("../imgs/logo04.png");
+      margin-bottom: 8px;
+    }
+    // transition: all 0.3s ease-in-out;
+    &:hover {
+      border-bottom: 2px solid white;
+    }
+  }
 }
 
 .button {
-  margin: auto;
+  // margin: auto;
+  // margin: 100px;
   font-weight: 700;
   font-size: rem(14);
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  padding: 20px 60px;
+  padding: 16px 55px;
   border: 1px solid #94979a;
   // transition: none;
   transition-timing-function: ease-out;
+  transition: 0.3s;
 
   &:hover {
-
     transform-origin: 0;
     transform: perspective(1000px) rotateY(35deg);
   }
-  &--transition {
-    transition: 0.3s;
+}
+//------------------------------------------------
+//------------------------------------------------
+//------------------------------------------------
+//------------------------------------------------
+//------------------------------------------------
+//------------------------------------------------
+//------------------------------------------------
+
+.slider {
+  flex-grow: 1;
+  @include fl-cntr--strtch(stretch);
+  flex-direction: column;
+  // $slide-bg: red;
+  $slide-bg: #f7f7f7;
+  &__slide-item, &__controls{
+    background-color: $slide-bg;
+    }
+  &__slide-item {
+    flex-basis: auto;
+    flex-grow: 1;
+    @include fl-cntr--start(column);
+  }
+
+  &__controls {
+    @include fl-cntr(row);
+    flex-basis: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 60px;
+  }
+
+  &__control--dot {
+    border: 1px solid #a9afb3;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-right: 11px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      border-color: #a9afb3;
+      background-color: #a9afb3;
+    }
   }
 }
+
+.twee {
+  @include fl-cntr(column);
+  // position: relative;
+  // background: #f7f7f7;
+  // width: 100%;
+  // height: 100%;
+  padding: 0 300px;
+  padding-top: 125px;
+  &__header {
+    letter-spacing: 0.1em;
+    color: #353738;
+    font-size: rem(18);
+    font-weight: 700;
+    margin-bottom: 18px;
+    &::before {
+      @include fl-cntr(column);
+      content: url("../imgs/icon05-twee.png");
+      margin-bottom: 30px;
+    }
+
+  }
+  &__content {
+    text-align: center;
+    color: #848789;
+    font-size: rem(24);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 2rem;
+
+
+  }
+
+  &-acc {
+    margin-left: 5px;
+    margin-right: 5px;
+    &::before {
+      content: '@';
+    }
+  }
+
+  &-time {
+    // margin-left: 10px;
+    margin-right: 0;
+    font-weight: 300;
+    color: #848789;
+    &::before {
+      content: '/';
+      margin-right: 10px;
+    }
+  }
+
+}
+
+
 .header {
   top: 0;
   position: relative;
@@ -167,11 +301,12 @@ body {
   // background-color: rgba(40, 222, 76, 0.11);
   @include fl-cntr(column);
 }
+
 .logo {
   position: absolute;
   left: center;
   top: center;
-  height:85px;
+  height: 85px;
   width: 94px;
   // background-image: url('../imgs/logo01.png');
   // background-repeat: no-repeat;
@@ -180,6 +315,7 @@ body {
   // z-index: 1;
   // background-color: rgba(216, 222, 40, 0.41);
 }
+
 .main-menu {
   @include fl-cntr(row);
   position: absolute;
@@ -189,19 +325,16 @@ body {
   z-index: 2;
   // background-color: rgba(207, 40, 222, 0.11);
 }
+
 .menu {
   width: 100%;
   @include fl-cntr(row);
-
-// отступы всем пунктам меню
-
+  // отступы всем пунктам меню
   &__items li {
     padding: 0 ($link-space / 2);
     position: relative;
   }
-
-// точки между ссылок ко всем ссылкам
-
+  // точки между ссылок ко всем ссылкам
   &__items li::before {
     content: ".";
     display: block;
@@ -209,53 +342,50 @@ body {
     color: $fcolor--menu;
     position: absolute;
   }
-// убираем точку у каждой первой ссылки
+  // убираем точку у каждой первой ссылки
+
   &__items li:first-child::before {
     content: "";
   }
-
-// обе части меню занимают 50%
+  // обе части меню занимают 50%
   &__items {
     flex-basis: 50%;
-
-//левая половина
-
+    //левая половина
     &--left {
       @include fl-cntr--end(row);
       padding-right: ($logo-space / 2);
     }
-//правая половина
+    //правая половина
+
     &--right {
       @include fl-cntr--start(row);
       padding-left: ($logo-space / 2);
     }
-
-//убираем отступ слева у первого блока левой части
+    //убираем отступ слева у первого блока левой части
     &--left li:first-child {
       padding-left: 0;
     }
-
-//убираем отступ справа у последнего блока левой части меню
+    //убираем отступ справа у последнего блока левой части меню
     &--left li:last-child {
       padding-right: 0;
     }
-
-//выравнивание ссылок по правому краю в левой половине меню
+    //выравнивание ссылок по правому краю в левой половине меню
     &--left li a {
-    @include fl-cntr--end(row);
+      @include fl-cntr--end(row);
     }
-
-//убираем отступ слева у первого блока в правой части меню
-    &--right li:first-child{
+    //убираем отступ слева у первого блока в правой части меню
+    &--right li:first-child {
       padding-left: 0;
     }
-//убираем отступ справа у последнего блока в правой части меню
+    //убираем отступ справа у последнего блока в правой части меню
+
     &--right li:last-child {
       padding-right: 0;
     }
-//выравнивание ссылок по левому краю в правой половине меню
+    //выравнивание ссылок по левому краю в правой половине меню
+
     &--right li a {
-    @include fl-cntr--start(row);
+      @include fl-cntr--start(row);
     }
   }
 
@@ -264,6 +394,7 @@ body {
     font-size: rem(13);
     display: block;
   }
+
   &__link {
     text-transform: uppercase;
     color: $fcolor--menu;
@@ -272,6 +403,7 @@ body {
     text-decoration: none;
     letter-spacing: 0.2em;
     transition: all 0.3s ease-in-out;
+
     &:hover {
       // text-decoration: underline;
       color: #64c29e;
@@ -293,16 +425,18 @@ body {
   padding: 0 250px;
   font-size: rem(14);
   @include fl-cntr--bw(row);
+
 }
 
 .address {
-  flex-basis: 25%;
+  flex-basis: 25%; //разобратсья с этой поебенью
   font-style: italic;
 
   &__title {
     font-size: rem(16);
     font-style: normal;
-    margin: 0;
+    font-weight: 700;
+    // margin: 0;
   }
 
   &__link {
@@ -321,6 +455,7 @@ body {
 
   &__item {
     margin-right: 15px;
+
     &:hover {
       transform-origin: 50%;
       transform: rotate(360deg);
@@ -342,6 +477,7 @@ body {
     font-style: italic;
     margin-right: 5px;
   }
+
   &__logo {
     transition: none;
 

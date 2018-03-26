@@ -9,7 +9,7 @@
   <title>Bicycle</title>
 </head>
 
-<body class="body__fonts-loaded">
+<body class="page__fonts-loaded">
   <section class="section section--hero" style="background-image: url('./assets/imgs/hero.jpg')">
     <div class="header">
       <img class="logo" src="./assets/imgs/logo01.png" alt="Brand logo">
@@ -30,49 +30,105 @@
   </section>
 
   <section class="section section--about-us">
-      <h2 class="section__title">a new generation of vintage bike</h2>
-      <p class="section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et aperiam consequuntur ipsum. Aperiam rerum aliquid explicabo neque exercitationem, incidunt reprehenderit voluptatum magni, amet? Ex natus esse voluptate tempora explicabo minima quaerat
-        rerum ratione, maiores unde cupiditate minus aliquam, tenetur repellat. Modi doloremque natus doloribus ut enim pariatur eveniet earum laudantium.</p>
+    <h2 class="section__title">a new generation of vintage bike</h2>
+    <p class="section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et aperiam consequuntur ipsum. Aperiam rerum aliquid explicabo neque exercitationem, incidunt reprehenderit voluptatum magni, amet? Ex natus esse voluptate tempora explicabo minima quaerat
+      rerum ratione, maiores unde cupiditate minus aliquam, tenetur repellat. Modi doloremque natus doloribus ut enim pariatur eveniet earum laudantium.</p>
     </div>
   </section>
+
   <section class="section section--recent-tweets">
-    <div class="container">
-      <span class="section__twee-author"></span><span class="section__twee-time"></span><br>
-      <p class="sectionP__twee-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic perferendis sit, quisquam non amet odit quia facilis modi aliquam, cumque.</p>
-      <div class="slider-controls">
-        <div class="slider-controls__dot--active"></div>
-        <div class="slider-controls__dot"></div>
-        <div class="slider-controls__dot"></div>
+
+    <div class="slider">
+      <div class="slider__slide-item">
+        <article class="twee">
+          <header class="twee__header">
+            <span class="twee-author">AOD New York</span>
+            <span class="twee-acc">aod</span>
+            <span class="twee-time">35 min</span>
+          </header>
+          <div class="twee__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
+          </div>
+        </article>
+      </div>
+      <div class="slider__controls">
+        <a class="slider__control--dot" href="#"></a>
+        <a class="slider__control--dot" href="#"></a>
+        <a class="slider__control--dot" href="#"></a>
       </div>
     </div>
+
   </section>
+  <!-- section SHOP -->
+
   <section class="section section--shop">
-    мой Кирюша - сладкий котик! =)
-    <div class="img-wrapper blue">
-      <img src="./assets/imgs/bicycle09.jpg" alt="">
-      <img src="./assets/imgs/bicycle10.jpg" alt="">
-      <img src="./assets/imgs/bicycle11.jpg" alt="">
+    <div class="img-links">
+      <!-- первый квадрат   -->
+      <div class="img-links--wrap">
+        <div class="img-link" style="background: url('./assets/imgs/bicycle09.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+        <div class="img-link img-link--rectangle" style="background: url('./assets/imgs/bicycle10.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+        <div class="img-link img-link--rectangle-h" style="background: url('./assets/imgs/bicycle11.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- второй квадрат -->
+      <div class="img-links--wrap img-links--wrap-big">
+        <div class="img-link img-link--rectangle-v" style="background: url('./assets/imgs/bicycle12.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+        <div class="img-link img-link--rectangle-v" style="background: url('./assets/imgs/bicycle13.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- третий квадрат -->
+      <div class="img-links--wrap">
+        <div class="img-link img-link--rectangle-h" style="background: url('./assets/imgs/bicycle14.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+        <div class="img-link" style="background: url('./assets/imgs/bicycle15.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+        <div class="img-link img-link--rectangle" style="background: url('./assets/imgs/bicycle16.jpg')">
+          <div class="img-link--bg">
+            <a class="img-link__text" href="#">shop now</a>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="img-wrapper red">
-      <img src="./assets/imgs/bicycle12.jpg" alt="">
-      <img src="./assets/imgs/bicycle13.jpg" alt="">
-    </div>
-    <div class="img-wrapper green">
-      <img src="./assets/imgs/bicycle14.jpg" alt="">
-      <img src="./assets/imgs/bicycle15.jpg" alt="">
-      <img src="./assets/imgs/bicycle16.jpg" alt="">
-    </div>
-    мой папа
-      <!-- <div class="section__pic--2x1--link">
-        <a href="">shop now</a>
-      </div> -->
-  </section>
-  <section class="section section--enter">
-    <a class="button button--transition" href="#">discover the shop</a>
+
+    <a class="section__button button" href="#">discover the shop</a>
+
   </section>
   <footer class="section footer">
     <div class="address">
-      <strong class="address__title">AOD New York</strong><br> 2250 Lexington Avenue<br> New York, NY 10035 - <a class="address__link" href="mailto:info@domain.com">info@domain.com</a>
+      <span class="address__title">AOD New York</span>
+      <br> 2250 Lexington Avenue<br> New York, NY 10035 -
+      <a class="address__link" href="mailto:info@domain.com">info@domain.com</a>
     </div>
     <div class="social-links">
       <div class="social-links__item">
